@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
+const App = () => {
+    const  [todos, setTodos] = useState([])
+    useEffect(() => {
+        axious('https://65642482ceac41c0761d7ebf.mockapi.io/')
+            .then(({data}) => setTodos(data))
+        },[])
 
-function App() {
+
+const handleDelete(id) => {
+        const deleteItems = item.filter(item)
+    }
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={'conatainer'}>
+        <h1>
+Todo List
+        </h1>
+        <input type={'text'}
+        <div>
+            {
+                todos.map(todo =>
+                        <div key={todo.id}>
+                            <div className={'todo-wrapper'} key={todo.id}></div>
+                            {todo.title}
+                            <input type="checkbox" checked={todo.completed} />
+                            <span>
+                {dayjs(todo.createdeAt).format('HH:mm DD.MM.YYYY')}
+            </span>
+                        </div>
+                )
+            }
+        </div>
     </div>
   );
 }
